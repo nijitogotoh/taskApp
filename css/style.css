@@ -1,0 +1,145 @@
+.main {
+  display: block;
+  width: 60vw;
+  margin: 10%;
+}
+
+.taskCounts {
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+}
+.taskCounts .compCountNum {
+  background-color: rgb(151, 246, 151);
+}
+.taskCounts .taskCountNum {
+  background-color: rgb(249, 127, 127);
+}
+
+.taskList {
+  margin-top: 10px;
+}
+.taskList .taskBody .task {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.taskList .taskBody .task .taskContent {
+  display: flex;
+  flex-direction: column;
+}
+.taskList .taskBody .task .taskContent .taskTitle input {
+  display: inline-block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  padding: 4px 0;
+  font-size: 4vw;
+  grid-area: 1/1/2/2;
+}
+.taskList .taskBody .task .taskContent .taskDescription input {
+  display: inline-block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  padding: 4px 0;
+  font-size: 2vw;
+  grid-area: 2/1/3/2;
+}
+.taskList .taskBody .task .taskButton {
+  display: flex;
+  align-items: end;
+}
+.taskList .taskBody .task .taskButton button {
+  height: 70%;
+  width: 10vw;
+  grid-area: 1/2/3/3;
+}
+
+.taskTitleInput,
+.taskDescriptionInput {
+  display: inline-block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  padding: 4px 0;
+}
+
+.taskTitleInput {
+  font-size: 4vw;
+}
+
+.taskDescriptionInput {
+  font-size: 2vw;
+}
+
+.taskTitleDisplay,
+.taskDescriptionDisplay {
+  display: inline-block;
+  width: 300px;
+  border-bottom: 1px solid #333;
+  padding: 4px 0;
+  background-color: rgb(249, 127, 127);
+}
+
+.taskTitleDisplay {
+  font-size: 4vw;
+}
+
+.taskDescriptionDisplay {
+  font-size: 2vw;
+}
+.taskDescriptionDisplay.noBorder {
+  border-bottom: none;
+}
+
+.compStyle {
+  background-color: rgb(151, 246, 151);
+}
+
+.taskRow {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.taskRow.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.completed .taskName {
+  background-color: rgb(151, 246, 151);
+}
+
+.addButtonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#addButton {
+  background-color: rgb(205, 205, 205);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.compButton {
+  background-color: rgb(205, 205, 205);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.delButton {
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./app.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <main class="main">
+
+    <div class="taskCounts">
+      <p class="taskCountNum">未済タスク：<span id="taskCountNum">0</span></p>
+      <p class="compCountNum">完了タスク：<span id="compCountNum">0</span></p>
+    </div>
+
+    <div class="taskList">
+      <table class="tasks">
+        <tbody class="taskBody" id="taskBody">
+          <!-- タスクがここに追加されていく -->
+          <tr class="task addRow">
+            <td class="taskContent">
+              <div class="taskTitle"><input type="text" placeholder="タイトル"></div>
+              <div class="taskDescription"><input type="text" placeholder="説明"></div>
+            </td>
+            <td class="taskButton">
+              <button id="addButton" class="button">追加</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</body>
+</html>
