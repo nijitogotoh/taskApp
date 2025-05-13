@@ -1,5 +1,9 @@
+body {
+  display: grid;
+  place-items: center;
+}
+
 .main {
-  display: block;
   width: 60vw;
   margin: 10%;
 }
@@ -7,7 +11,7 @@
 .taskCounts {
   display: flex;
   justify-content: center;
-  gap: 10vw;
+  gap: 6vw;
 }
 .taskCounts .compCountNum {
   background-color: rgb(151, 246, 151);
@@ -16,85 +20,102 @@
   background-color: rgb(249, 127, 127);
 }
 
-.taskList {
+.taskOuter {
   margin-top: 10px;
 }
-.taskList .taskBody .task {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+.taskOuter .taskWrapper .taskBody .taskContainer {
+  display: flex;
   gap: 20px;
+  width: 100%;
   margin-top: 20px;
 }
-.taskList .taskBody .task .taskContent {
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd {
   display: flex;
   flex-direction: column;
 }
-.taskList .taskBody .task .taskContent .taskTitle input {
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskTitle input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskTitleAdd input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskTitle input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskTitleAdd input {
   display: inline-block;
-  width: 300px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #333;
   outline: none;
   padding: 4px 0;
   font-size: 4vw;
-  grid-area: 1/1/2/2;
 }
-.taskList .taskBody .task .taskContent .taskDescription input {
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskDescription input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskDescriptionAdd input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskDescription input,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskDescriptionAdd input {
   display: inline-block;
-  width: 300px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #333;
   outline: none;
   padding: 4px 0;
   font-size: 2vw;
-  grid-area: 2/1/3/2;
 }
-.taskList .taskBody .task .taskButton {
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .noBorder,
+.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .noBorder {
+  border-bottom: none;
+}
+.taskOuter .taskWrapper .taskBody .taskContainer .taskButton {
   display: flex;
   align-items: end;
 }
-.taskList .taskBody .task .taskButton button {
+.taskOuter .taskWrapper .taskBody .taskContainer .taskButton .addButton {
   height: 70%;
   width: 10vw;
-  grid-area: 1/2/3/3;
+  background-color: rgb(205, 205, 205);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 
-.taskTitleInput,
-.taskDescriptionInput {
+.taskInputAdd {
+  background-color: rgb(249, 127, 127);
   display: inline-block;
-  width: 300px;
+  width: 100%;
+  padding: 4px 0;
+}
+.taskInputAdd .taskTitleAdd {
+  display: inline-block;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #333;
   outline: none;
   padding: 4px 0;
-}
-
-.taskTitleInput {
   font-size: 4vw;
 }
-
-.taskDescriptionInput {
-  font-size: 2vw;
-}
-
-.taskTitleDisplay,
-.taskDescriptionDisplay {
+.taskInputAdd .taskDescriptionAdd {
   display: inline-block;
-  width: 300px;
+  width: 100%;
+  border: none;
   border-bottom: 1px solid #333;
+  outline: none;
   padding: 4px 0;
-  background-color: rgb(249, 127, 127);
-}
-
-.taskTitleDisplay {
-  font-size: 4vw;
-}
-
-.taskDescriptionDisplay {
   font-size: 2vw;
 }
-.taskDescriptionDisplay.noBorder {
+.taskInputAdd .noBorder {
   border-bottom: none;
+}
+
+.compButton {
+  background-color: rgb(205, 205, 205);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.delButton {
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 
 .compStyle {
@@ -112,34 +133,6 @@
 
 .completed .taskName {
   background-color: rgb(151, 246, 151);
-}
-
-.addButtonWrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#addButton {
-  background-color: rgb(205, 205, 205);
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.compButton {
-  background-color: rgb(205, 205, 205);
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.delButton {
-  background-color: rgb(30, 30, 30);
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

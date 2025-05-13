@@ -28,55 +28,62 @@ function compCount() {
 document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.querySelector(".taskTitle input");
   const descInput = document.querySelector(".taskDescription input");
-  const addButton = document.querySelector(".taskButton .button");
+  const addButton = document.querySelector(".taskButton .addButton");
   const taskTable = document.querySelector("#taskBody");
 
   // ボタンがクリックされたらタスクを追加
   addButton.addEventListener("click", () => {
-    const title = titleInput.value.trim();
-    const desc = descInput.value.trim();
-    if (!title) return;
+  const title = titleInput.value.trim();
+  const desc = descInput.value.trim();
+  if (!title) return;
 
-    const newTr = document.createElement("tr");
-    newTr.classList.add("task", "taskRow");
+  const newTr = document.createElement("tr");
+  newTr.classList.add("taskContainerAdd", "addRow");
 
-    const addRow = document.querySelector("#taskBody .addRow");
+  requestAnimationFrame(() => {
+    newTr.classList.add("show");
+  });
 
-    requestAnimationFrame(() => {
-      newTr.classList.add("show");
-    });
+  const contentTd = document.createElement("td");
+  contentTd.className = "taskInputAdd";
 
-    const contentTd = document.createElement("td");
-    contentTd.className = "taskContent";
+  const titleDiv = document.createElement("div");
+  titleDiv.classList.add("taskTitle", "taskTitleAdd");
+  titleDiv.textContent = title;
 
-    const titleDiv = document.createElement("div");
-    titleDiv.classList.add("taskTitle", "taskTitleDisplay");
-    titleDiv.textContent = title;
+  const descDiv = document.createElement("div");
+  descDiv.classList.add("taskDescription", "taskDescriptionAdd");
+  descDiv.textContent = desc;
+  if (!desc) {
+    descDiv.classList.add("noBorder");
+  }
 
-    const descDiv = document.createElement("div");
-    descDiv.classList.add("taskDescription", "taskDescriptionDisplay");
-    descDiv.textContent = desc;
-    if (!desc) {
-      descDiv.classList.add("noBorder");
-    };
+  contentTd.appendChild(titleDiv);
+  contentTd.appendChild(descDiv);
 
-    contentTd.appendChild(titleDiv);
-    contentTd.appendChild(descDiv);
+  const buttonTd = document.createElement("td");
+  buttonTd.className = "taskButton";
 
-    const buttonTd = document.createElement("td");
-    buttonTd.classList.add("button", "taskButton");
+  const button = document.createElement("button");
+  button.className = "compButton";
+  button.textContent = "完了";
 
-    const button = document.createElement("button");
-    button.textContent = "完了";
-    button.className = "compButton";
+  buttonTd.appendChild(button);
 
-    // 完了ボタンクリック時の処理
+  newTr.appendChild(contentTd);
+  newTr.appendChild(buttonTd);
+
+  document.getElementById("taskBody").appendChild(newTr);
+
+  // 入力欄を空にする
+  titleInput.value = "";
+  descInput.value = "";
+
+  // 完了ボタンクリック時の処理
     button.addEventListener("click", () => {
       button.textContent = "削除";
-      button.classList.add("completed");
-      button.classList.add("delButton");
       button.classList.remove("compButton");
-
+      button.classList.add("delButton");
       titleDiv.classList.add("compStyle");
       descDiv.classList.add("compStyle");
 
@@ -96,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         compCount();
       });
     });
+    const addRow = document.querySelector(".addRow");
 
     buttonTd.appendChild(button);
     newTr.appendChild(contentTd);
@@ -107,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     taskCount();
 
-  });
+    });
+
 });
 
