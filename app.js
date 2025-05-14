@@ -1,18 +1,17 @@
-// window.onload = function () {
-//   // ローカルストレージから保存されたタスクを取得
-//   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+window.onload = function () {
+  // ローカルストレージから保存されたタスクを取得
+  const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-//   // タスクを表示するul要素を取得
-//   const taskList = document.getElementById("task-list");
+  // タスクを表示するul要素を取得
+  const taskList = document.getElementById("task-list");
 
-//   // // 保存されたタスクをリストに追加
-//   // savedTasks.forEach(function (taskText) {
-//   //   const taskItem = document.createElement("li");
-//   //   taskItem.textContent = taskText;
-//   //   taskList.appendChild(taskItem);
-//   // });
-// };
-
+  // 保存されたタスクをリストに追加
+  savedTasks.forEach(function (taskText) {
+    const taskItem = document.createElement("li");
+    taskItem.textContent = taskText;
+    taskList.appendChild(taskItem);
+  });
+};
 
 // ●未済タスクの数カウント関数
 function taskCount() {
@@ -29,93 +28,79 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.querySelector(".taskTitle input");
   const descInput = document.querySelector(".taskDescription input");
   const addButton = document.querySelector(".taskButton .addButton");
-  const taskTable = document.querySelector("#taskBody");
+  const taskBody = document.getElementById("taskBody");
 
-  // ボタンがクリックされたらタスクを追加
   addButton.addEventListener("click", () => {
-  const title = titleInput.value.trim();
-  const desc = descInput.value.trim();
-  if (!title) return;
+    const title = titleInput.value.trim();
+    const desc = descInput.value.trim();
+    if (!title) return;
 
-  const newTr = document.createElement("tr");
-  newTr.classList.add("taskContainerAdd", "addRow");
+    // 新しいタスクの要素を作成
+    const newTask = document.createElement("div");
+    newTask.classList.add("taskContainerAdd", "taskContainer", "taskRow");
 
-  requestAnimationFrame(() => {
-    newTr.classList.add("show");
-  });
-
-  const contentTd = document.createElement("td");
-  contentTd.className = "taskInputAdd";
-
-  const titleDiv = document.createElement("div");
-  titleDiv.classList.add("taskTitle", "taskTitleAdd");
-  titleDiv.textContent = title;
-
-  const descDiv = document.createElement("div");
-  descDiv.classList.add("taskDescription", "taskDescriptionAdd");
-  descDiv.textContent = desc;
-  if (!desc) {
-    descDiv.classList.add("noBorder");
-  }
-
-  contentTd.appendChild(titleDiv);
-  contentTd.appendChild(descDiv);
-
-  const buttonTd = document.createElement("td");
-  buttonTd.className = "taskButton";
-
-  const button = document.createElement("button");
-  button.className = "compButton";
-  button.textContent = "完了";
-
-  buttonTd.appendChild(button);
-
-  newTr.appendChild(contentTd);
-  newTr.appendChild(buttonTd);
-
-  document.getElementById("taskBody").appendChild(newTr);
-
-  // 入力欄を空にする
-  titleInput.value = "";
-  descInput.value = "";
-
-  // 完了ボタンクリック時の処理
-    button.addEventListener("click", () => {
-      button.textContent = "削除";
-      button.classList.remove("compButton");
-      button.classList.add("delButton");
-      titleDiv.classList.add("compStyle");
-      descDiv.classList.add("compStyle");
-
-      taskCount();
-      compCount();
-
-      // 削除ボタンに切り替えた後の処理
-      button.addEventListener("click", () => {
-        taskCount();
-        compCount();
-      }, { once: true });
-
-      // 削除ボタンクリック時の処理
-      button.addEventListener("click", () => {
-        newTr.remove();
-        taskCount();
-        compCount();
-      });
+    // アニメーション用
+    requestAnimationFrame(() => {
+      newTask.classList.add("show");
     });
+
+    // タイトルと説明部分
+    const taskInputAdd = document.createElement("div");
+    taskInputAdd.classList.add("taskInputAdd");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add("taskTitle", "taskTitleAdd");
+    titleDiv.textContent = title;
+
+    const descDiv = document.createElement("div");
+    descDiv.classList.add("taskDescription", "taskDescriptionAdd");
+    descDiv.textContent = desc;
+    if (!desc) descDiv.classList.add("noBorder");
+
+    taskInputAdd.appendChild(titleDiv);
+    taskInputAdd.appendChild(descDiv);
+
+    // ボタン部分
+    const taskButtonAdd = document.createElement("div");
+    taskButtonAdd.classList.add("taskButtonAdd");
+
+    const button = document.createElement("button");
+    button.classList.add("compButton");
+    button.textContent = "完了";
+
+    taskButtonAdd.appendChild(button);
+
+    // 追加の処理
+    newTask.appendChild(taskInputAdd);
+    newTask.appendChild(taskButtonAdd);
+
+    // 登録バー（addRow）の前に挿入
     const addRow = document.querySelector(".addRow");
+    taskBody.insertBefore(newTask, addRow);
 
-    buttonTd.appendChild(button);
-    newTr.appendChild(contentTd);
-    newTr.appendChild(buttonTd);
-    taskTable.insertBefore(newTr, addRow);
-
+    // 入力リセット
     titleInput.value = "";
     descInput.value = "";
 
     taskCount();
 
+    // 完了 → 削除への切り替え
+    button.addEventListener("click", () => {
+      button.textContent = "削除";
+      button.classList.remove("compButton");
+      button.classList.add("delButton");
+      taskInputAdd.classList.remove("taskInputAdd");
+      taskInputAdd.classList.add("compStyle");
+
+      taskCount();
+      compCount();
+
+      // 削除処理
+      button.addEventListener("click", () => {
+        newTask.remove();
+        taskCount();
+        compCount();
+      }, { once: true });
     });
-
+  });
 });
-

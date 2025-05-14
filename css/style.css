@@ -1,138 +1,124 @@
 body {
   display: grid;
-  place-items: center;
-}
+  place-items: center; }
 
 .main {
   width: 60vw;
-  margin: 10%;
-}
+  margin: 10%; }
 
 .taskCounts {
   display: flex;
   justify-content: center;
-  gap: 6vw;
-}
-.taskCounts .compCountNum {
-  background-color: rgb(151, 246, 151);
-}
-.taskCounts .taskCountNum {
-  background-color: rgb(249, 127, 127);
-}
+  gap: 6vw; }
+  .taskCounts .compCountNum {
+    background-color: #97f697; }
+  .taskCounts .taskCountNum {
+    background-color: #f97f7f; }
 
 .taskOuter {
-  margin-top: 10px;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput,
+  margin-top: 10px; }
+  .taskOuter .taskWrapper .taskBody .taskContainer {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px; }
+    .taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskTitle input {
+      display: inline-block;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #333;
+      outline: none;
+      padding: 4px 0;
+      font-size: 4vw; }
+    .taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskDescription input {
+      display: inline-block;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #333;
+      outline: none;
+      padding: 4px 0;
+      font-size: 2vw; }
+    .taskOuter .taskWrapper .taskBody .taskContainer .taskInput .noBorder {
+      border-bottom: none; }
+    .taskOuter .taskWrapper .taskBody .taskContainer .taskButton {
+      display: flex;
+      align-items: end; }
+      .taskOuter .taskWrapper .taskBody .taskContainer .taskButton .addButton {
+        height: 70%;
+        width: 10vw;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+        background-color: #cdcdcd; }
+
 .taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd {
   display: flex;
   flex-direction: column;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskTitle input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskTitleAdd input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskTitle input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskTitleAdd input {
-  display: inline-block;
   width: 100%;
-  border: none;
-  border-bottom: 1px solid #333;
-  outline: none;
   padding: 4px 0;
-  font-size: 4vw;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskDescription input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .taskDescriptionAdd input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskDescription input,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskDescriptionAdd input {
-  display: inline-block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #333;
-  outline: none;
-  padding: 4px 0;
-  font-size: 2vw;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInput .noBorder,
-.taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .noBorder {
-  border-bottom: none;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskButton {
+  background-color: #f97f7f; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskTitleAdd {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    padding: 4px 0;
+    font-size: 4vw; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .taskDescriptionAdd {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    padding: 4px 0;
+    font-size: 2vw; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskInputAdd .noBorder {
+    border-bottom: none; }
+.taskOuter .taskWrapper .taskBody .taskContainer .compStyle {
   display: flex;
-  align-items: end;
-}
-.taskOuter .taskWrapper .taskBody .taskContainer .taskButton .addButton {
-  height: 70%;
-  width: 10vw;
-  background-color: rgb(205, 205, 205);
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.taskInputAdd {
-  background-color: rgb(249, 127, 127);
-  display: inline-block;
+  flex-direction: column;
   width: 100%;
   padding: 4px 0;
-}
-.taskInputAdd .taskTitleAdd {
-  display: inline-block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #333;
-  outline: none;
-  padding: 4px 0;
-  font-size: 4vw;
-}
-.taskInputAdd .taskDescriptionAdd {
-  display: inline-block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #333;
-  outline: none;
-  padding: 4px 0;
-  font-size: 2vw;
-}
-.taskInputAdd .noBorder {
-  border-bottom: none;
-}
-
-.compButton {
-  background-color: rgb(205, 205, 205);
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.delButton {
-  background-color: rgb(30, 30, 30);
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.compStyle {
-  background-color: rgb(151, 246, 151);
-}
+  background-color: #97f697; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .compStyle .taskTitleAdd {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    padding: 4px 0;
+    font-size: 4vw; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .compStyle .taskDescriptionAdd {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    padding: 4px 0;
+    font-size: 2vw; }
+.taskOuter .taskWrapper .taskBody .taskContainer .taskButtonAdd {
+  display: flex;
+  align-items: end; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskButtonAdd .compButton,
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskButtonAdd .delButton {
+    height: 70%;
+    width: 10vw;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: #cdcdcd; }
+  .taskOuter .taskWrapper .taskBody .taskContainer .taskButtonAdd .delButton {
+    color: white;
+    background-color: #1e1e1e; }
 
 .taskRow {
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.taskRow.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.completed .taskName {
-  background-color: rgb(151, 246, 151);
-}
+  transition: opacity 0.3s ease, transform 0.3s ease; }
+  .taskRow.show {
+    opacity: 1;
+    transform: translateY(0); }
 
 /*# sourceMappingURL=style.css.map */
